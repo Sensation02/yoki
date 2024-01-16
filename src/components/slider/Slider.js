@@ -38,22 +38,23 @@ const Slider = () => {
             -10 %
           </div>
           <div className='subtitle' data-swiper-parallax='-200'>
-            НА САМОВИНІС
+            FOR SELF TAKEAWAY
           </div>
           <div className='text' data-swiper-parallax='-100'>
-            <p>вул. Герцена, 2а</p>
+            <p>Hertsena str., 2а</p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className='title' data-swiper-parallax='-300'>
-            Доставимо роли
+            Deliver <br />
+            the rolls
           </div>
           <div className='subtitle' data-swiper-parallax='-200'>
-            до <strong style={{ fontSize: 200 }}>59</strong>хв
+            to <strong style={{ fontSize: 200 }}>59</strong>min
           </div>
         </SwiperSlide>
       </Swiper>
-      <button className='slider__button'>Замовляй</button>
+      <button className='slider__button'>Order</button>
     </section>
   )
 }

@@ -1,0 +1,62 @@
+.meals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.meals .meals-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.meals .meals-container__title-block {
+  z-index: 0;
+  padding: 1rem;
+  display: block;
+  width: 100%;
+  background-image: url("../../assets/title_block_bg.svg");
+  background-repeat: repeat-y;
+  background-position: center;
+}
+.meals .meals-container__title-block__inner {
+  z-index: 1;
+  padding: 2rem;
+  background-color: #171717;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.meals .meals-container__title-text {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: normal;
+  text-align: center;
+}
+.meals .meals-container__title-signs {
+  font-size: 1.5rem;
+  color: #565656;
+  font-weight: lighter;
+}
+.meals .meals-container__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.meals .meals-container .meal-card {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.meals .meals-container .meal-card .img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.5rem;
+}
+.meals .meals-container .meal-card .sushi__image {
+  background-image: url("../../assets/roll.jpg");
+}
+.meals .meals-container .meal-card .pizza__image {
+  background-image: url("../../assets/pizza.jpg");
+}
