@@ -1,0 +1,82 @@
+@use '../../style/service.scss' as s;
+
+.header-bottom {
+  @include s.header;
+  position: sticky;
+  top: 0;
+  .logo {
+    margin-left: 1rem;
+    width: 8rem;
+    height: 5rem;
+  }
+  .header-bottom__menu {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    .icon {
+      margin-top: 0.5rem;
+      @include s.icon;
+      color: s.color(black);
+    }
+  }
+  .header-bottom__categories {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    .header-bottom__categories--item {
+      display: flex;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: s.color(black);
+      &:hover {
+        @include s.icon;
+        color: s.color(black);
+      }
+      span {
+        align-self: center;
+      }
+    }
+  }
+  .header-bottom__item {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .header__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-right: 1rem;
+    .icon {
+      @include s.icon;
+      color: s.color(black);
+
+      &:hover {
+        color: s.color(red);
+      }
+    }
+  }
+  .header-bottom__cart {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1.25rem 1rem;
+    background-color: s.color(red);
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: rgb(42, 42, 42);
+    }
+    .icon {
+      color: s.color(white);
+    }
+    span {
+      color: s.color(white);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+}

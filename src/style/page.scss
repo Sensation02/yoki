@@ -1,0 +1,38 @@
+@use './size.scss' as size;
+@use './screen.scss' as screen;
+
+@mixin page {
+  display: flex;
+  justify-content: center;
+}
+
+$contentSizeMap: (
+  desktop: 1440px,
+  laptop: 1260px,
+  tablet: 1000px,
+  mobile: 620px,
+);
+
+@mixin page__content {
+  width: 100%;
+  padding: 0 size.size(default);
+
+  @each $key, $value in screen.$screenMap {
+    @media all and (width < $value) {
+      max-width: map-get($contentSizeMap, $key);
+    }
+  }
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media all and (width < screen.screen(mobile)) {
+    grid-template-columns: 1fr;
+  }
+
+  @media all and (width >= screen.screen(tablet)) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

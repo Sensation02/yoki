@@ -1,0 +1,21 @@
+@use './style/service.scss' as s;
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  background-color: s.color(background);
+}
+
+header {
+  @include s.header;
+}
+
+.page {
+  @include s.page;
+}
+
+.page__content {
+  @include s.page__content;
+}

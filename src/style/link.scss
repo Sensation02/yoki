@@ -1,0 +1,19 @@
+@use './color.scss' as color;
+
+@mixin link {
+  text-decoration: none;
+  color: color.color(white);
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: color.color(red);
+  }
+}
+
+@mixin link--reverse {
+  text-decoration: dashed underline;
+  color: color.color(red);
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: color.color(white);
+  }
+}

@@ -1,0 +1,23 @@
+@use './color.scss';
+@forward './color.scss';
+
+@use './screen.scss';
+@forward './screen.scss';
+
+@use './page.scss';
+@forward './page.scss';
+
+@use './size.scss';
+@forward './size.scss';
+
+@use './header.scss';
+@forward './header.scss';
+
+@use './link.scss';
+@forward './link.scss';
+
+@use './icon.scss';
+@forward './icon.scss';
+
+@use './flex.scss';
+@forward './flex.scss';

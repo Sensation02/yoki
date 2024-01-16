@@ -1,0 +1,7 @@
+@use './flex.scss' as flex;
+
+@mixin header {
+  @include flex.flex;
+  @include flex.flex-between;
+  flex-direction: row;
+}

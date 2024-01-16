@@ -1,0 +1,93 @@
+.header-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+}
+.header-bottom .logo {
+  margin-left: 1rem;
+  width: 8rem;
+  height: 5rem;
+}
+.header-bottom .header-bottom__menu {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.header-bottom .header-bottom__menu .icon {
+  margin-top: 0.5rem;
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  color: #040404;
+}
+.header-bottom .header-bottom__menu .icon:hover {
+  color: #e31e24;
+}
+.header-bottom .header-bottom__categories {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.header-bottom .header-bottom__categories .header-bottom__categories--item {
+  display: flex;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #040404;
+}
+.header-bottom .header-bottom__categories .header-bottom__categories--item:hover {
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  color: #040404;
+}
+.header-bottom .header-bottom__categories .header-bottom__categories--item:hover:hover {
+  color: #e31e24;
+}
+.header-bottom .header-bottom__categories .header-bottom__categories--item span {
+  align-self: center;
+}
+.header-bottom .header-bottom__item {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.header-bottom .header__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-right: 1rem;
+}
+.header-bottom .header__actions .icon {
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  color: #040404;
+}
+.header-bottom .header__actions .icon:hover {
+  color: #e31e24;
+}
+.header-bottom .header__actions .icon:hover {
+  color: #e31e24;
+}
+.header-bottom .header-bottom__cart {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1.25rem 1rem;
+  background-color: #e31e24;
+  transition: all 0.3s ease-in-out;
+}
+.header-bottom .header-bottom__cart:hover {
+  background-color: rgb(42, 42, 42);
+}
+.header-bottom .header-bottom__cart .icon {
+  color: #ffffff;
+}
+.header-bottom .header-bottom__cart span {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
