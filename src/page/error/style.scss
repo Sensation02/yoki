@@ -1,0 +1,5 @@
+@use '../../style/service.scss' as s;
+
+.meals-container {
+  @include s.meals-container;
+}

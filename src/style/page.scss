@@ -15,7 +15,6 @@ $contentSizeMap: (
 
 @mixin page__content {
   width: 100%;
-  padding: 0 size.size(default);
 
   @each $key, $value in screen.$screenMap {
     @media all and (width < $value) {
@@ -28,9 +27,9 @@ $contentSizeMap: (
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
-  @media all and (width < screen.screen(mobile)) {
-    grid-template-columns: 1fr;
-  }
+  // @media all and (width < screen.screen(mobile)) {
+  //   grid-template-columns: 1fr;
+  // }
 
   @media all and (width >= screen.screen(tablet)) {
     grid-template-columns: repeat(2, 1fr);

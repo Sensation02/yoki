@@ -1,4 +1,3 @@
-// Масив з суші ролами
 export const sushiRolls = [
   {
     name: 'California Roll',
@@ -29,7 +28,29 @@ export const sushiRolls = [
   },
 ]
 
-// Масив з піцами
+export const sushiSetIngredients = [
+  {
+    name: 'Soy sauce',
+    price: 10,
+  },
+  {
+    name: 'Wasabi',
+    price: 20,
+  },
+  {
+    name: 'Ginger',
+    price: 15,
+  },
+  {
+    name: 'Spicy sauce',
+    price: 15,
+  },
+  {
+    name: 'Unagi sauce',
+    price: 15,
+  },
+]
+
 export const pizzas = [
   {
     name: 'Margherita',
@@ -57,5 +78,48 @@ export const pizzas = [
       'onion',
       'olives',
     ],
+  },
+]
+
+export const pizzaIngredients = [
+  {
+    name: 'Tomato sauce',
+    price: 4,
+  },
+  {
+    name: 'Cheese',
+    price: 5,
+  },
+  {
+    name: 'Basil',
+    price: 3,
+  },
+  {
+    name: 'Pepperoni',
+    price: 6,
+  },
+  {
+    name: 'Ham',
+    price: 6,
+  },
+  {
+    name: 'Pineapple',
+    price: 5,
+  },
+  {
+    name: 'Mushrooms',
+    price: 4,
+  },
+  {
+    name: 'Pepper',
+    price: 4,
+  },
+  {
+    name: 'Onion',
+    price: 4,
+  },
+  {
+    name: 'Olives',
+    price: 5,
   },
 ]

@@ -1,0 +1,38 @@
+@use './color.scss' as c;
+
+@mixin meals-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+  &__title-block {
+    z-index: 0;
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    background-image: url('../assets/title_block_bg.svg');
+    background-repeat: repeat-y;
+    background-position: center;
+
+    &__inner {
+      z-index: 1;
+      padding: 2rem;
+      background-color: c.color(black_2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  &__title-text {
+    font-size: 2rem;
+    color: c.color(white);
+    font-weight: normal;
+    text-align: center;
+  }
+  &__title-signs {
+    font-size: 1.5rem;
+    color: c.color(white);
+    font-weight: lighter;
+  }
+}

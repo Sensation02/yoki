@@ -1,40 +1,44 @@
 import React from 'react'
-import SectionHeading from '../ui/SectionHeading'
-import MealCard from '../ui/Card'
+import MealSection from '../ui/MealSection'
 import { sushiRolls, pizzas } from '../../data/data'
 
 import './style.scss'
 
-const Meals = () => {
-  const data = [sushiRolls, pizzas]
+const Meals = ({ meal }) => {
   return (
     <section className='meals'>
-      <div className='meals-container'>
-        <SectionHeading title='Sushi' subtitle='人気のメニュー' />
-        <div className='meals-container__grid'>
-          {data[0].map((meal) => (
-            <MealCard
-              id={meal.id}
-              name={meal.name}
-              ingredients={meal.ingredients}
-              media='img sushi__image'
-            />
-          ))}
-        </div>
-      </div>
-      <div className='meals-container'>
-        <SectionHeading title='Pizza' subtitle='人気のあるカテゴリ' />
-        <div className='meals-container__grid'>
-          {data[1].map((meal) => (
-            <MealCard
-              id={meal.id}
-              name={meal.name}
-              ingredients={meal.ingredients}
-              media='img pizza__image'
-            />
-          ))}
-        </div>
-      </div>
+      {meal === 'sushi' && (
+        <MealSection
+          data={sushiRolls}
+          title='Sushi Rolls'
+          subtitle='人気のあるカテゴリ'
+          image='sushi__image'
+        />
+      )}
+      {meal === 'pizza' && (
+        <MealSection
+          data={pizzas}
+          title='Pizzas'
+          subtitle='人気のあるカテゴリ'
+          image='pizza__image'
+        />
+      )}
+      {meal === 'both' && (
+        <>
+          <MealSection
+            data={sushiRolls}
+            title='Sushi Rolls'
+            subtitle='人気のあるカテゴリ'
+            image='sushi__image'
+          />
+          <MealSection
+            data={pizzas}
+            title='Pizzas'
+            subtitle='人気のあるカテゴリ'
+            image='pizza__image'
+          />
+        </>
+      )}
     </section>
   )
 }

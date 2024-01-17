@@ -4,6 +4,8 @@
   @include s.header;
   position: sticky;
   top: 0;
+  background-color: #fff;
+
   .logo {
     margin-left: 1rem;
     width: 8rem;
@@ -61,6 +63,7 @@
     }
   }
   .header-bottom__cart {
+    visibility: hidden; // comment this line when cart mechanic is ready
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -80,3 +83,11 @@
     }
   }
 }
+
+// .sticky {
+//   @include s.header;
+//   position: fixed;
+//   top: 0;
+//   width: 100%;
+//   z-index: 10;
+// }

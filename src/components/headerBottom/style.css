@@ -4,6 +4,7 @@
   flex-direction: row;
   position: sticky;
   top: 0;
+  background-color: #fff;
 }
 .header-bottom .logo {
   margin-left: 1rem;
@@ -73,6 +74,7 @@
   color: #e31e24;
 }
 .header-bottom .header-bottom__cart {
+  visibility: hidden;
   display: flex;
   flex-direction: row;
   gap: 1rem;

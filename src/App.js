@@ -1,34 +1,23 @@
-import { useState, useEffect } from 'react'
-
-import HeaderTop from './components/headerTop/HeaderTop'
-import HeaderBottom from './components/headerBottom/HeaderBottom'
-import Slider from './components/slider/Slider'
-import Meals from './components/meals/Meals'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
-import { BrowserRouter } from 'react-router-dom'
+import Home from './page/home/page'
+import Sets from './page/sets/page'
+import Pizza from './page/pizza/page'
+import Error from './page/error/page'
 
 function App() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth)
-    }
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
   return (
     <main className='page'>
       <div className='page__content'>
         <BrowserRouter>
-          <header style={{ position: 'relative' }}>
-            <HeaderTop />
-            <HeaderBottom />
-          </header>
-          {windowWidth > 767 && <Slider />}
-          <Meals />
+          <Header />
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path='/sets' element={<Sets />} />
+            <Route path='/pizza' element={<Pizza />} />
+            <Route path='*' element={<Error />} />
+          </Routes>
           <Footer />
         </BrowserRouter>
       </div>

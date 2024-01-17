@@ -1,5 +1,4 @@
-import { Smartphone } from 'lucide-react'
-import { Search, Heart, UserRound } from 'lucide-react'
+import { Search, Heart, UserRound, Smartphone } from 'lucide-react'
 import './style.scss'
 
 import React from 'react'

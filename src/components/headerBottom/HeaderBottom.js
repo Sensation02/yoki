@@ -5,7 +5,7 @@ import { ShoppingBag, Search, Heart, UserRound } from 'lucide-react'
 import Routes from '../ui/Routes'
 import './style.scss'
 
-const HeaderBottom = () => {
+const HeaderBottom = ({ className }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const HeaderBottom = () => {
   }, [])
 
   return (
-    <div className='header-bottom'>
+    <div className={`header-bottom ${className}`}>
       <div className='header-bottom__menu'>
         <img src={logo} alt='yoki_logo' className='logo' />
         {windowWidth <= 619 && <LongMenu className='icon' />}

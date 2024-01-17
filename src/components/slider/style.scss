@@ -12,7 +12,7 @@
     z-index: 2;
     position: absolute;
     top: 60%;
-    left: 75%;
+    left: 60%;
     background-color: s.color(red);
     color: s.color(white);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -21,13 +21,6 @@
     width: 17rem;
     height: 17rem;
     border-radius: 50%;
-    @media all and (max-width: 1000px) {
-      top: 70%;
-      left: 70%;
-      font-size: 2rem;
-      width: 12rem;
-      height: 12rem;
-    }
   }
 
   .swiper {

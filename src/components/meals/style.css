@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  margin-top: 2rem;
 }
 .meals .meals-container {
   width: 100%;
@@ -17,8 +18,7 @@
   display: block;
   width: 100%;
   background-image: url("../../assets/title_block_bg.svg");
-  background-repeat: repeat-y;
-  background-position: center;
+  background-size: cover;
 }
 .meals .meals-container__title-block__inner {
   z-index: 1;

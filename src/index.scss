@@ -1,10 +1,11 @@
 @use './style/service.scss' as s;
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
-  line-height: 1.5;
+  line-height: 1.2;
   background-color: s.color(background);
 }
 
