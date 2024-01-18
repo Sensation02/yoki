@@ -1,5 +1,5 @@
 import React from 'react'
-import footerImage from '../../assets/footer_logo.svg'
+// import footerImage from '../../assets/footer_logo.svg'
 import {
   Instagram,
   Facebook,
@@ -7,8 +7,8 @@ import {
   MapPin,
   ChevronUp,
 } from 'lucide-react'
-import visa from '../../assets/visa.svg'
-import mastercard from '../../assets/mastercard.svg'
+// import visa from '../../assets/visa.svg'
+// import mastercard from '../../assets/mastercard.svg'
 import { Link } from 'react-router-dom'
 import './style.scss'
 
@@ -60,7 +60,12 @@ const Footer = () => {
       <div className='footer__container'>
         <div className='footer__item'>
           <div>
-            <img src={footerImage} alt='' width={120} height={40} />
+            <img
+              src='../../../assets/footer_logo.svg'
+              alt=''
+              width={120}
+              height={40}
+            />
           </div>
           <div className='item__socials'>
             <Link
@@ -125,8 +130,8 @@ const Footer = () => {
         </div>
         <div className='footer__item'>
           <div className='paycards'>
-            <img src={mastercard} alt='' />
-            <img src={visa} alt='' />
+            <img src='../../../assets/mastercard.svg' alt='' />
+            <img src='../../../assets/visa.svg' alt='' />
           </div>
         </div>
         <div className='footer__item' style={{ flexDirection: 'row' }}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import useScreenWidth from '../../utils/useScreenWidth'
 import LongMenu from '../ui/Menu'
-import logo from '../../assets/logo_black_resteurant-01.svg'
+// import logo from '../../assets/logo_black_resteurant-01.svg'
 import { ShoppingBag, Search, Heart, UserRound } from 'lucide-react'
 import Routes from '../ui/Routes'
 import { Link } from 'react-router-dom'
@@ -13,7 +13,11 @@ const HeaderBottom = ({ className }) => {
   return (
     <div className={`header-bottom ${className}`}>
       <div className='header-bottom__menu'>
-        <img src={logo} alt='yoki_logo' className='logo' />
+        <img
+          src='../../../assets/logo_black_resteurant-01.svg'
+          alt='yoki_logo'
+          className='logo'
+        />
         {windowWidth <= 619 && <LongMenu className='icon' />}
       </div>
 
