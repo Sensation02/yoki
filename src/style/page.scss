@@ -25,13 +25,12 @@ $contentSizeMap: (
 
 @mixin grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
-  // @media all and (width < screen.screen(mobile)) {
-  //   grid-template-columns: 1fr;
+  // @media all and (width < screen.screen(tablet)) {
   // }
 
-  @media all and (width >= screen.screen(tablet)) {
-    grid-template-columns: repeat(2, 1fr);
+  @media all and (width < screen.screen(mobile)) {
+    grid-template-columns: 1fr;
   }
 }

@@ -44,9 +44,9 @@ const Constructor = ({ type }) => {
             <CardMedia
               component='img'
               height='140'
-              image=''
+              image='../assets/SushiSet.jpg'
               alt=''
-              className='img sushi__image'
+              className='img'
             />
             <CardContent>
               <Typography gutterBottom variant='h4' component='div'>

@@ -28,6 +28,12 @@
   align-items: center;
   justify-content: space-between;
 }
+@media all and (width < 620px) {
+  .meals .meals-container__title-block__inner {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
 .meals .meals-container__title-text {
   font-size: 2rem;
   color: #ffffff;
@@ -42,8 +48,13 @@
 .meals .meals-container__grid {
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
+}
+@media all and (width < 620px) {
+  .meals .meals-container__grid {
+    padding: 0;
+  }
 }
 .meals .meals-container .meal-card {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -54,10 +65,4 @@
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0.5rem;
-}
-.meals .meals-container .meal-card .sushi__image {
-  background-image: url("../../assets/roll.jpg");
-}
-.meals .meals-container .meal-card .pizza__image {
-  background-image: url("../../assets/pizza.jpg");
 }

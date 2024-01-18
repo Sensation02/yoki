@@ -12,7 +12,7 @@ const Meals = ({ meal }) => {
           data={sushiRolls}
           title='Sushi Rolls'
           subtitle='人気のあるカテゴリ'
-          image='sushi__image'
+          type={meal}
         />
       )}
       {meal === 'pizza' && (
@@ -20,7 +20,7 @@ const Meals = ({ meal }) => {
           data={pizzas}
           title='Pizzas'
           subtitle='人気のあるカテゴリ'
-          image='pizza__image'
+          type={meal}
         />
       )}
       {meal === 'both' && (
@@ -29,13 +29,13 @@ const Meals = ({ meal }) => {
             data={sushiRolls}
             title='Sushi Rolls'
             subtitle='人気のあるカテゴリ'
-            image='sushi__image'
+            type={meal}
           />
           <MealSection
             data={pizzas}
             title='Pizzas'
             subtitle='人気のあるカテゴリ'
-            image='pizza__image'
+            type={meal}
           />
         </>
       )}

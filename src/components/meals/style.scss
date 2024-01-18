@@ -28,6 +28,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @media all and (width < s.screen(mobile)) {
+          flex-direction: column;
+          gap: 1rem;
+        }
       }
     }
     &__title-text {
@@ -45,22 +50,24 @@
     &__grid {
       padding: 0 2rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 2rem;
+
+      @media all and (width < s.screen(mobile)) {
+        padding: 0;
+      }
     }
     .meal-card {
       box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+      // @media all and (width < s.screen(mobile)) {
+      //   max-width: 200px;
+      // }
       .img {
         width: 100%;
         height: 200px;
         object-fit: cover;
         border-radius: 0.5rem;
-      }
-      .sushi__image {
-        background-image: url('../../assets/roll.jpg');
-      }
-      .pizza__image {
-        background-image: url('../../assets/pizza.jpg');
       }
     }
   }

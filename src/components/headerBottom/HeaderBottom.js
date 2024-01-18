@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import useScreenWidth from '../../utils/useScreenWidth'
 import LongMenu from '../ui/Menu'
 import logo from '../../assets/logo_black_resteurant-01.svg'
 import { ShoppingBag, Search, Heart, UserRound } from 'lucide-react'
 import Routes from '../ui/Routes'
+import { Link } from 'react-router-dom'
 import './style.scss'
 
 const HeaderBottom = ({ className }) => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth)
-    }
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+  const windowWidth = useScreenWidth()
 
   return (
     <div className={`header-bottom ${className}`}>
@@ -29,15 +21,15 @@ const HeaderBottom = ({ className }) => {
       {windowWidth < 1200 && (
         <div className='header-bottom__item'>
           <div className='header__actions'>
-            <a href='/search' className='icon'>
+            <Link to='/search' className='icon'>
               <Search size={20} />
-            </a>
-            <a href='/favorite' className='icon'>
+            </Link>
+            <Link to='/favorite' className='icon'>
               <Heart size={20} />
-            </a>
-            <a href='/profile' className='icon'>
+            </Link>
+            <Link to='/profile' className='icon'>
               <UserRound size={20} />
-            </a>
+            </Link>
           </div>
           <button className='header-bottom__cart' type='button'>
             <ShoppingBag className='icon' />
@@ -46,10 +38,14 @@ const HeaderBottom = ({ className }) => {
         </div>
       )}
       {windowWidth > 1200 && (
-        <button className='header-bottom__cart' type='button'>
+        <Link
+          to='/cart'
+          className='header-bottom__cart'
+          style={{ textDecoration: 'none' }}
+        >
           <ShoppingBag className='icon' />
-          <span>0 $</span>
-        </button>
+          <span>100000 $</span>
+        </Link>
       )}
     </div>
   )

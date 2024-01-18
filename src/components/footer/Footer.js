@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'
 import visa from '../../assets/visa.svg'
 import mastercard from '../../assets/mastercard.svg'
+import { Link } from 'react-router-dom'
 import './style.scss'
 
 const about = [
@@ -62,22 +63,22 @@ const Footer = () => {
             <img src={footerImage} alt='' width={120} height={40} />
           </div>
           <div className='item__socials'>
-            <a
+            <Link
               href='https://facebook.com'
               className='red-icon'
               target='_blank'
               rel='noreferrer'
             >
               <Facebook size={24} className='icon' />
-            </a>
-            <a
+            </Link>
+            <Link
               href='https://instagram.com'
               className='red-icon'
               target='_blank'
               rel='noreferrer'
             >
               <Instagram size={24} className='icon' />
-            </a>
+            </Link>
           </div>
         </div>
         <div className='footer__item'>
@@ -86,9 +87,9 @@ const Footer = () => {
               <Smartphone size={24} className='icon' />
             </div>
             <div className='info-item__description'>
-              <a href='tel:+380501234567' className='link'>
+              <Link href='tel:+380501234567' className='link'>
                 050 123 45 67
-              </a>
+              </Link>
               <span>Working time</span>
               <p>
                 11:00-23:00 <span>Deliver to 22:00</span>
@@ -108,9 +109,9 @@ const Footer = () => {
         <div className='footer__item'>
           <div className='about'>
             {about.map((item, index) => (
-              <a href={item.link} className='link' key={index}>
+              <Link to={item.link} className='link' key={index}>
                 {item.title}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

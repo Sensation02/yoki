@@ -2,6 +2,7 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Parallax, Pagination } from 'swiper/modules'
+import { Link } from 'react-router-dom'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import './style.scss'
@@ -54,7 +55,14 @@ const Slider = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-      <button className='slider__button'>Order</button>
+      <button className='slider__button'>
+        <Link
+          href='notfound'
+          style={{ textDecoration: 'none', color: 'white' }}
+        >
+          Order
+        </Link>
+      </button>
     </section>
   )
 }

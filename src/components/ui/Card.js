@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import { CardActionArea } from '@mui/material'
 
-const MealCard = ({ id, name, ingredients, media }) => {
+const MealCard = ({ id, name, ingredients, image }) => {
   const ingredientsList = ingredients.map((ingredient) => (
     <li className='meal-card__ingredient'>{ingredient}</li>
   ))
@@ -13,13 +13,7 @@ const MealCard = ({ id, name, ingredients, media }) => {
   return (
     <Card key={id} className='meal-card'>
       <CardActionArea>
-        <CardMedia
-          component='img'
-          height='140'
-          image=''
-          alt=''
-          className={media}
-        />
+        <CardMedia component='img' height='140' image={image} alt='' />
         <CardContent>
           <Typography gutterBottom variant='h5' component='div'>
             {name}

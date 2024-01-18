@@ -6,6 +6,14 @@
   top: 0;
   background-color: #fff;
 
+  @media all and (width < s.screen(mobile)) {
+    flex-direction: column;
+    .header-bottom__menu,
+    .header-bottom__item {
+      justify-content: space-between;
+    }
+  }
+
   .logo {
     margin-left: 1rem;
     width: 8rem;
@@ -52,7 +60,11 @@
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    margin-right: 1rem;
+
+    @media all and (width < s.screen(mobile)) {
+      margin: 0 1rem;
+    }
+
     .icon {
       @include s.icon;
       color: s.color(black);
@@ -63,7 +75,7 @@
     }
   }
   .header-bottom__cart {
-    visibility: hidden; // comment this line when cart mechanic is ready
+    // visibility: hidden; // comment this line when cart mechanic is ready
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -77,6 +89,7 @@
       color: s.color(white);
     }
     span {
+      padding-top: 0.25rem;
       color: s.color(white);
       font-size: 1.5rem;
       font-weight: bold;
