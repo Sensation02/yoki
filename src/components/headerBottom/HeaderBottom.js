@@ -48,7 +48,7 @@ const HeaderBottom = ({ className }) => {
           style={{ textDecoration: 'none' }}
         >
           <ShoppingBag className='icon' />
-          <span>100000 $</span>
+          <span>0 $</span>
         </Link>
       )}
     </div>

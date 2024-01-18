@@ -69,7 +69,7 @@ const Footer = () => {
           </div>
           <div className='item__socials'>
             <Link
-              href='https://facebook.com'
+              to='https://facebook.com'
               className='red-icon'
               target='_blank'
               rel='noreferrer'
@@ -77,7 +77,7 @@ const Footer = () => {
               <Facebook size={24} className='icon' />
             </Link>
             <Link
-              href='https://instagram.com'
+              to='https://instagram.com'
               className='red-icon'
               target='_blank'
               rel='noreferrer'
