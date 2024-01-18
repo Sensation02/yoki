@@ -1,0 +1,30 @@
+@use '../../style/service.scss' as s;
+
+.meals-container {
+  @include s.meals-container;
+}
+
+.constructor {
+  @include s.constructor;
+  padding: 0 2rem;
+  @media all and (width < s.screen(tablet)) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media all and (width < s.screen(mobile)) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .constructor__item {
+    @media all and (width < s.screen(tablet)) {
+      width: 100%;
+    }
+  }
+
+  .pizza__ingredients {
+    @include s.grid;
+    @media all and (width < s.screen(tablet)) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

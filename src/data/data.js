@@ -30,23 +30,23 @@ export const sushiRolls = [
 
 export const sushiSetIngredients = [
   {
-    name: 'Soy sauce',
+    ingredientName: 'Soy sauce',
     price: 10,
   },
   {
-    name: 'Wasabi',
+    ingredientName: 'Wasabi',
     price: 20,
   },
   {
-    name: 'Ginger',
+    ingredientName: 'Ginger',
     price: 15,
   },
   {
-    name: 'Spicy sauce',
+    ingredientName: 'Spicy sauce',
     price: 15,
   },
   {
-    name: 'Unagi sauce',
+    ingredientName: 'Unagi sauce',
     price: 15,
   },
 ]
@@ -83,43 +83,69 @@ export const pizzas = [
 
 export const pizzaIngredients = [
   {
+    ingredientName: 'Cheese',
+    price: 5,
+  },
+  {
+    ingredientName: 'Basil',
+    price: 3,
+  },
+  {
+    ingredientName: 'Pepperoni',
+    price: 6,
+  },
+  {
+    ingredientName: 'Ham',
+    price: 6,
+  },
+  {
+    ingredientName: 'Pineapple',
+    price: 5,
+  },
+  {
+    ingredientName: 'Mushrooms',
+    price: 4,
+  },
+  {
+    ingredientName: 'Pepper',
+    price: 4,
+  },
+  {
+    ingredientName: 'Onion',
+    price: 4,
+  },
+  {
+    ingredientName: 'Olives',
+    price: 5,
+  },
+]
+
+export const pizzaSauces = [
+  {
     name: 'Tomato sauce',
     price: 4,
   },
   {
-    name: 'Cheese',
+    name: 'White sauce',
     price: 5,
   },
   {
-    name: 'Basil',
-    price: 3,
-  },
-  {
-    name: 'Pepperoni',
+    name: 'Spicy sauce',
     price: 6,
   },
+]
+
+export const pizzaSizes = [
   {
-    name: 'Ham',
-    price: 6,
+    name: 'Small',
+    price: 20,
   },
   {
-    name: 'Pineapple',
-    price: 5,
+    name: 'Medium',
+    price: 50,
   },
   {
-    name: 'Mushrooms',
-    price: 4,
-  },
-  {
-    name: 'Pepper',
-    price: 4,
-  },
-  {
-    name: 'Onion',
-    price: 4,
-  },
-  {
-    name: 'Olives',
-    price: 5,
+    name: 'Large',
+    price: 100,
   },
 ]

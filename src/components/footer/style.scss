@@ -36,8 +36,9 @@
       align-items: center;
       gap: 1rem;
 
+      // eslint-disable-next-line no-restricted-syntax
       @media all and (width < s.screen(tablet)) {
-        justify-content: start;
+        justify-content: flex-start;
       }
     }
     .paycards {

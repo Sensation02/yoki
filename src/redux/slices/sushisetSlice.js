@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 // пустий масив для зберігання об'єктів суші сетів
-const initialState = []
+const initialState = {
+  sushiset: {
+    rolls: [],
+    ingredients: [],
+  },
+}
 
 // створюємо суші сети
 const sushisetSlice = createSlice({
@@ -10,23 +15,23 @@ const sushisetSlice = createSlice({
   reducers: {
     // додаємо суші роли в суші сет
     addSushiRoll(state, action) {
-      const sushiRoll = action.payload
-      state.push(sushiRoll)
+      state.sushiset.rolls.push(action.payload)
     },
     // видаляємо суші роли з суші сет
     removeSushiRoll(state, action) {
-      const sushiRoll = action.payload
-      return state.filter((roll) => roll !== sushiRoll)
+      state.sushiset.rolls = state.sushiset.rolls.filter(
+        (roll) => roll !== action.payload,
+      )
     },
-    // додаємо додаткові інгредієнти в суші сет
+    // додаємо інгредієнти в суші сет
     addSushiRollIngredients(state, action) {
-      const sushiRollIngredients = action.payload
-      state.push(sushiRollIngredients)
+      state.sushiset.ingredients.push(action.payload)
     },
-    // видаляємо додаткові інгредієнти з суші сет
+    // видаляємо інгредієнти з суші сет
     removeSushiRollIngredients(state, action) {
-      const sushiRollIngredients = action.payload
-      return state.filter((ingredient) => ingredient !== sushiRollIngredients)
+      state.sushiset.ingredients = state.sushiset.ingredients.filter(
+        (ingredient) => ingredient !== action.payload,
+      )
     },
   },
 })

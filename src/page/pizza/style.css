@@ -1,0 +1,94 @@
+.meals-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.meals-container__title-block {
+  z-index: 0;
+  padding: 1rem;
+  display: block;
+  width: 100%;
+  background-image: url("../assets/title_block_bg.svg");
+  background-repeat: repeat-y;
+  background-position: center;
+}
+.meals-container__title-block__inner {
+  z-index: 1;
+  padding: 2rem;
+  background-color: #171717;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.meals-container__title-text {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: normal;
+  text-align: center;
+}
+.meals-container__title-signs {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: lighter;
+}
+
+.constructor {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 2rem;
+}
+.constructor__item {
+  width: clamp(200px, 30%, 500px);
+  max-width: 500px;
+}
+.constructor__item .meal-card {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.constructor__item .meal-card .img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.5rem;
+}
+.constructor__item .meal-card .sushi__image {
+  background-image: url("../assets/roll.jpg");
+}
+.constructor__item .meal-card .pizza__image {
+  background-image: url("../assets/pizza.jpg");
+}
+@media all and (width < 1000px) {
+  .constructor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media all and (width < 620px) {
+  .constructor {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+@media all and (width < 1000px) {
+  .constructor .constructor__item {
+    width: 100%;
+  }
+}
+.constructor .pizza__ingredients {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media all and (width >= 1000px) {
+  .constructor .pizza__ingredients {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media all and (width < 1000px) {
+  .constructor .pizza__ingredients {
+    grid-template-columns: 1fr;
+  }
+}

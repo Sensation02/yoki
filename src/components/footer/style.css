@@ -36,7 +36,7 @@
 }
 @media all and (width < 1000px) {
   .footer__item .item__socials {
-    justify-content: start;
+    justify-content: flex-start;
   }
 }
 .footer__item .paycards {
