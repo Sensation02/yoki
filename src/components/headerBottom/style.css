@@ -2,8 +2,6 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  position: sticky;
-  top: 0;
   background-color: #fff;
 }
 @media all and (width < 620px) {
@@ -103,6 +101,11 @@
 .header-bottom .header-bottom__cart span {
   padding-top: 0.25rem;
   color: #ffffff;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
+}
+@media all and (width < 620px) {
+  .header-bottom .header-bottom__cart span {
+    display: none;
+  }
 }

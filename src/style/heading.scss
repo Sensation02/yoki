@@ -18,7 +18,7 @@
 
     &__inner {
       z-index: 1;
-      padding: 2rem;
+      padding: 1.5rem;
       background-color: c.color(black_2);
       display: flex;
 
@@ -32,13 +32,14 @@
     }
   }
   &__title-text {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: c.color(white);
     font-weight: normal;
+    place-self: center;
     text-align: center;
   }
   &__title-signs {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: c.color(white);
     font-weight: lighter;
 

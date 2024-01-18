@@ -22,9 +22,11 @@
   }
 
   .pizza__ingredients {
-    @include s.grid;
+    display: flex;
+    gap: 2rem;
     @media all and (width < s.screen(tablet)) {
-      grid-template-columns: 1fr;
+      flex-direction: column;
+      gap: 0.5rem;
     }
   }
 }

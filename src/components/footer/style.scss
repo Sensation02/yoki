@@ -8,6 +8,8 @@
 
   @media all and (width < s.screen(tablet)) {
     .footer__container {
+      // display: grid;
+      // grid-template-columns: repeat(2, minmax(200px, 1fr));
       flex-direction: column;
       gap: 2rem;
     }
@@ -24,7 +26,7 @@
     justify-content: space-between;
     padding: 1rem 2rem;
     background-color: s.color(black);
-    @media all and (width < s.screen(tablet)) {
+    @media all and (width < s.screen(mobile)) {
       flex-direction: column;
       gap: 2rem;
     }
@@ -81,7 +83,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: bold;
         .link {
           @include s.link;
@@ -102,23 +104,16 @@
       }
     }
     .about {
-      // padding: 2rem;
       @include s.grid;
-      gap: 1rem;
+      gap: 1rem 0;
 
-      // @media screen and (width < s.screen(tablet)) {
-      //   grid-template-columns: repeat(2, 1fr);
-      //   padding: 0;
-      // }
-
-      // @media all and (width < s.screen(mobile)) {
-      //   grid-template-columns: 1fr;
-      //   padding: 0;
-      // }
+      @media all and (width < s.screen(tablet)) {
+        max-width: 50%;
+      }
 
       .link {
         @include s.link;
-        font-size: 1.5rem;
+        font-size: 1rem;
       }
     }
   }
@@ -132,6 +127,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  place-self: end;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   &:hover {
     background-color: s.color(black_2);
@@ -148,4 +144,14 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.row {
+  @media all and (s.screen(mobile) < width < s.screen(tablet)) {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    justify-content: start;
+  }
 }

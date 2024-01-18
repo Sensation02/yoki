@@ -1,6 +1,5 @@
 import React from 'react'
 import useScreenWidth from '../../utils/useScreenWidth'
-// import titleDecor from '../../assets/title_decor_white.svg'
 
 const SectionHeading = ({ title, subtitle }) => {
   const windowWidth = useScreenWidth()

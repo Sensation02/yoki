@@ -86,7 +86,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className='footer__item'>
+        <div className='footer__item row'>
           <div className='info-item'>
             <div className='info-icon__container'>
               <Smartphone size={24} className='icon' />

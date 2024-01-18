@@ -49,19 +49,20 @@ const Constructor = ({ type }) => {
               className='img'
             />
             <CardContent>
-              <Typography gutterBottom variant='h4' component='div'>
+              <Typography gutterBottom variant='h5' component='div'>
                 Your set
               </Typography>
 
               <CardContent
                 sx={{
                   display: 'flex',
-                  flexDirection: 'row',
-                  gap: '4rem',
-                  justifyContent: 'space-between',
+                  flexDirection: 'column',
+                  gap: '1rem',
+
+                  padding: '0',
                 }}
               >
-                <Typography gutterBottom variant='h6' component='div'>
+                <Typography gutterBottom variant='text' component='div'>
                   Rolls:
                   <ul>
                     {sushiset
@@ -73,7 +74,7 @@ const Constructor = ({ type }) => {
                       ))}
                   </ul>
                 </Typography>
-                <Typography gutterBottom variant='h6' component='div'>
+                <Typography gutterBottom variant='text' component='div'>
                   Additional ingredients:
                   <ul>
                     {sushiSetIngredients
@@ -89,7 +90,7 @@ const Constructor = ({ type }) => {
                 </Typography>
               </CardContent>
 
-              <Typography variant='h4' color='text.primary'>
+              <Typography variant='h6' color='text.primary'>
                 Total Price: {calculateSetTotalPrice()}$
               </Typography>
             </CardContent>
@@ -105,13 +106,14 @@ const Constructor = ({ type }) => {
             component='fieldset'
             variant='standard'
           >
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography gutterBottom variant='h6' component='div'>
               Add rolls to your set
             </Typography>
             <FormGroup>
               {sushiRolls.map((roll) => (
                 <FormControlLabel
                   key={roll.name}
+                  sx={{ fontSize: '0.75rem' }}
                   control={
                     <Checkbox
                       checked={sushiset.includes(roll.name)}
@@ -180,11 +182,11 @@ const Constructor = ({ type }) => {
               className='img pizza__image'
             />
             <CardContent>
-              <Typography gutterBottom variant='h4' component='div'>
+              <Typography gutterBottom variant='h5' component='div'>
                 Your Pizza
               </Typography>
-              <CardContent className='pizza__ingredients'>
-                <Typography gutterBottom variant='h6' component='div'>
+              <CardContent className='pizza__ingredients' sx={{ padding: 0 }}>
+                <Typography gutterBottom variant='text' component='div'>
                   Ingredients:
                   <ul>
                     {pizzaIngredients
@@ -198,25 +200,14 @@ const Constructor = ({ type }) => {
                       ))}
                   </ul>
                 </Typography>
-                <Typography
-                  gutterBottom
-                  variant='h6'
-                  component='div'
-                  sx={{ display: 'flex', gap: '0.5rem' }}
-                >
+                <Typography gutterBottom variant='text' component='div'>
                   Sauce: {pizzaSauce}
-                </Typography>
-                <Typography
-                  gutterBottom
-                  variant='h6'
-                  component='div'
-                  sx={{ display: 'flex', gap: '0.5rem' }}
-                >
+                  <br />
                   Size: {pizzaSize}
                 </Typography>
               </CardContent>
 
-              <Typography variant='h4' color='text.primary'>
+              <Typography variant='h6' color='text.primary'>
                 Total Price: {calculatePizzaTotalPrice()}$
               </Typography>
             </CardContent>
@@ -232,7 +223,7 @@ const Constructor = ({ type }) => {
             component='fieldset'
             variant='standard'
           >
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography gutterBottom variant='h6' component='div'>
               Add pizza ingredients
             </Typography>
             <FormGroup>
@@ -267,7 +258,7 @@ const Constructor = ({ type }) => {
             component='fieldset'
             variant='standard'
           >
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography gutterBottom variant='h6' component='div'>
               Choose pizza sauce
             </Typography>
             <RadioGroup
@@ -326,7 +317,7 @@ const Constructor = ({ type }) => {
               m: 3,
             }}
           >
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography gutterBottom variant='h6' component='div'>
               Choose pizza size
             </Typography>
             <RadioGroup

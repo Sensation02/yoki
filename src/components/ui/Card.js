@@ -15,10 +15,10 @@ const MealCard = ({ id, name, ingredients, image }) => {
       <CardActionArea>
         <CardMedia component='img' height='140' image={image} alt='' />
         <CardContent>
-          <Typography gutterBottom variant='h5' component='div'>
+          <Typography gutterBottom variant='h6' component='div'>
             {name}
           </Typography>
-          <Typography variant='body' color='text.primary'>
+          <Typography variant='text' color='text.primary'>
             {ingredientsList}
           </Typography>
         </CardContent>
