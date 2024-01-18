@@ -60,19 +60,19 @@ export const pizzas = [
     name: 'Margherita',
     price: 150,
     ingredients: ['tomato sauce', 'cheese', 'basil'],
-    image: '../assets/pizzas/margherita.jpg',
+    image: '../assets/pizzas/Margherita.jpg',
   },
   {
     name: 'Pepperoni',
     price: 180,
     ingredients: ['tomato sauce', 'cheese', 'pepperoni'],
-    image: '../assets/pizzas/pepperoni.jpg',
+    image: '../assets/pizzas/Pepperoni.jpg',
   },
   {
     name: 'Hawaiian',
     price: 170,
     ingredients: ['tomato sauce', 'cheese', 'ham', 'pineapple'],
-    image: '../assets/pizzas/hawaiian.jpg',
+    image: '../assets/pizzas/Hawaiian.jpg',
   },
   {
     name: 'Vegetarian',
@@ -85,7 +85,7 @@ export const pizzas = [
       'onion',
       'olives',
     ],
-    image: '../assets/pizzas/vegetarian.jpg',
+    image: '../assets/pizzas/Vegetarian.jpg',
   },
 ]
 
