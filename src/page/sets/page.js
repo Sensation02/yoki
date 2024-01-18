@@ -12,7 +12,7 @@ const Sets = () => {
         title='Build your sushi set'
         subtitle='Sushi constructor'
       />
-      <Constructor />
+      <Constructor type='sushi' />
     </section>
   )
 }

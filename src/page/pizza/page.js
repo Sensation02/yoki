@@ -12,7 +12,7 @@ const Pizza = () => {
         title='Build your own pizza'
         subtitle='Pizza constructor'
       />
-      <Constructor />
+      <Constructor type='pizza' />
     </section>
   )
 }
