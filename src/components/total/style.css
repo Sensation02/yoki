@@ -1,0 +1,22 @@
+.total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem;
+}
+@media (max-width: 900px) {
+  .total {
+    min-width: unset;
+  }
+}
+.total__title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #565656;
+}
+.total__subtitle {
+  font-size: 20px;
+  font-weight: 450;
+  color: #565656;
+}

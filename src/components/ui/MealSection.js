@@ -13,6 +13,7 @@ const MealSection = ({ data, title, subtitle }) => {
             name={meal.name}
             ingredients={meal.ingredients}
             image={meal.image}
+            price={meal.price}
           />
         ))}
       </div>

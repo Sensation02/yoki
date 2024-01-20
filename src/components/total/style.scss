@@ -1,0 +1,23 @@
+@use '../../style/service.scss' as s;
+
+.total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem;
+
+  @media (max-width: 900px) {
+    min-width: unset;
+  }
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: s.color(text);
+  }
+  &__subtitle {
+    font-size: 20px;
+    font-weight: 450;
+    color: s.color(text);
+  }
+}

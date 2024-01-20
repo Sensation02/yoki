@@ -56,10 +56,7 @@ const Slider = () => {
         </SwiperSlide>
       </Swiper>
       <button className='slider__button'>
-        <Link
-          href='notfound'
-          style={{ textDecoration: 'none', color: 'white' }}
-        >
+        <Link to='/notfound' style={{ textDecoration: 'none', color: 'white' }}>
           Order
         </Link>
       </button>

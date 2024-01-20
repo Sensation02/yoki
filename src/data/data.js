@@ -1,23 +1,27 @@
 export const sushiRolls = [
   {
+    id: 1,
     name: 'California Roll',
     price: 100,
     ingredients: ['fish', 'avocado', 'cucumber', 'nori', 'rice'],
     image: '../assets/rolls/CaliforniaRoll.jpg',
   },
   {
+    id: 2,
     name: 'Spicy Tuna Roll',
     price: 120,
     ingredients: ['tuna', 'avocado', 'cucumber', 'nori', 'rice', 'spicy sauce'],
     image: '../assets/rolls/SpicyTunaRoll.jpg',
   },
   {
+    id: 3,
     name: 'Philadelphia Roll',
     price: 110,
     ingredients: ['salmon', 'avocado', 'cucumber', 'nori', 'rice', 'cheese'],
     image: '../assets/rolls/PhiladelphiaRoll.jpg',
   },
   {
+    id: 4,
     name: 'Dragon Roll',
     price: 130,
     ingredients: [
@@ -57,24 +61,28 @@ export const sushiSetIngredients = [
 
 export const pizzas = [
   {
+    id: 1,
     name: 'Margherita',
     price: 150,
     ingredients: ['tomato sauce', 'cheese', 'basil'],
     image: '../assets/pizzas/Margherita.jpg',
   },
   {
+    id: 2,
     name: 'Pepperoni',
     price: 180,
     ingredients: ['tomato sauce', 'cheese', 'pepperoni'],
     image: '../assets/pizzas/Pepperoni.jpg',
   },
   {
+    id: 3,
     name: 'Hawaiian',
     price: 170,
     ingredients: ['tomato sauce', 'cheese', 'ham', 'pineapple'],
     image: '../assets/pizzas/Hawaiian.jpg',
   },
   {
+    id: 4,
     name: 'Vegetarian',
     price: 160,
     ingredients: [

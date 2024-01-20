@@ -11,12 +11,12 @@
   display: block;
   width: 100%;
   background-image: url("../../public/assets/title_block_bg.svg");
-  background-repeat: repeat-y;
+  background-repeat: repeat;
   background-position: center;
 }
 .meals-container__title-block__inner {
   z-index: 1;
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: #171717;
   display: flex;
   align-items: center;
@@ -29,13 +29,14 @@
   }
 }
 .meals-container__title-text {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #ffffff;
   font-weight: normal;
+  place-self: center;
   text-align: center;
 }
 .meals-container__title-signs {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #ffffff;
   font-weight: lighter;
 }
@@ -83,6 +84,27 @@
     display: grid;
     grid-template-columns: 1fr;
   }
+}
+.constructor .red-icon {
+  background-color: #e31e24;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-self: end;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.constructor .red-icon:hover {
+  background-color: #171717;
+  box-shadow: 0 0 0 2px red;
+  color: #ffffff;
+}
+.constructor .float-right {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 @media all and (width < 1000px) {
   .constructor .constructor__item {

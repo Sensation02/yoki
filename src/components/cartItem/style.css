@@ -1,0 +1,21 @@
+.cartItem {
+  margin-top: 1rem;
+}
+.cartItem .fold {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (width: 280px) {
+  .cartItem {
+    width: 100%;
+  }
+  .cartItem .fold {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (width: 540px) {
+  .cartItem {
+    align-content: center;
+  }
+}

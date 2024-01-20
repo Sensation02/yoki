@@ -20,6 +20,7 @@
       }
     }
     .meal-card {
+      position: relative;
       box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 
       &__ingredient {
@@ -32,6 +33,10 @@
         height: 200px;
         object-fit: cover;
         border-radius: 0.5rem;
+      }
+
+      .float-right {
+        @include s.float-right;
       }
     }
   }

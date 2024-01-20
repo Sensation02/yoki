@@ -18,7 +18,7 @@
   display: block;
   width: 100%;
   background-image: url("../../public/assets/title_block_bg.svg");
-  background-repeat: repeat-y;
+  background-repeat: repeat;
   background-position: center;
 }
 .meals .meals-container__title-block__inner {
@@ -64,6 +64,7 @@
   }
 }
 .meals .meals-container .meal-card {
+  position: relative;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 .meals .meals-container .meal-card__ingredient {
@@ -77,4 +78,9 @@
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0.5rem;
+}
+.meals .meals-container .meal-card .float-right {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }

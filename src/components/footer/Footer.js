@@ -7,8 +7,6 @@ import {
   MapPin,
   ChevronUp,
 } from 'lucide-react'
-// import visa from '../../assets/visa.svg'
-// import mastercard from '../../assets/mastercard.svg'
 import { Link } from 'react-router-dom'
 import './style.scss'
 

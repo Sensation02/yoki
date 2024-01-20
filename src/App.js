@@ -12,6 +12,7 @@ function App() {
       <div className='page__content'>
         <BrowserRouter>
           <Header />
+
           <Routes>
             <Route index element={<Home />} />
             <Route path='/sets' element={<Sets />} />

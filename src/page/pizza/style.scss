@@ -15,6 +15,15 @@
     display: grid;
     grid-template-columns: 1fr;
   }
+
+  .red-icon {
+    @include s.redIcon;
+  }
+
+  .float-right {
+    @include s.float-right;
+  }
+
   .constructor__item {
     @media all and (width < s.screen(tablet)) {
       width: 100%;

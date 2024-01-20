@@ -21,6 +21,8 @@ import {
   RadioGroup,
   Radio,
 } from '@mui/material'
+import AddButton from '../ui/AddButton'
+import { v4 as uuidv4 } from 'uuid'
 
 const Constructor = ({ type }) => {
   const { sushiset, handleRoll, handleSetIngredients, calculateSetTotalPrice } =
@@ -35,6 +37,24 @@ const Constructor = ({ type }) => {
     handlePizzaSize,
     calculatePizzaTotalPrice,
   } = useConstructor(type)
+
+  const customSushiSet = {
+    id: uuidv4(),
+    name: 'Custom Sushi Set',
+    image: '../assets/SushiSet.jpg',
+    price: calculateSetTotalPrice(),
+    ingredients: sushiset,
+  }
+
+  const customPizza = {
+    id: uuidv4(),
+    name: 'Custom Pizza',
+    image: '../assets/Pizza.jpg',
+    price: calculatePizzaTotalPrice(),
+    ingredients: pizza,
+    sauce: pizzaSauce,
+    size: pizzaSize,
+  }
 
   return type === 'sushi' ? (
     <div className='constructor'>
@@ -93,6 +113,13 @@ const Constructor = ({ type }) => {
               <Typography variant='h6' color='text.primary'>
                 Total Price: {calculateSetTotalPrice()}$
               </Typography>
+
+              <AddButton
+                id={customSushiSet.id}
+                name={customSushiSet.name}
+                image={customSushiSet.image}
+                price={customSushiSet.price}
+              />
             </CardContent>
           </CardActionArea>
         </Card>
@@ -210,6 +237,12 @@ const Constructor = ({ type }) => {
               <Typography variant='h6' color='text.primary'>
                 Total Price: {calculatePizzaTotalPrice()}$
               </Typography>
+              <AddButton
+                id={customPizza.id}
+                name={customPizza.name}
+                image={customPizza.image}
+                price={customPizza.price}
+              />
             </CardContent>
           </CardActionArea>
         </Card>

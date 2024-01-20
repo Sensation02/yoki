@@ -1,10 +1,12 @@
 import React from 'react'
 import useScreenWidth from '../../utils/useScreenWidth'
+import Cart from '../cartModal/Cart'
 import LongMenu from '../ui/Menu'
-// import logo from '../../assets/logo_black_resteurant-01.svg'
-import { ShoppingBag, Search, Heart, UserRound } from 'lucide-react'
 import Routes from '../ui/Routes'
 import { Link } from 'react-router-dom'
+import { Search, Heart, UserRound } from 'lucide-react'
+// import { useSelector } from 'react-redux'
+
 import './style.scss'
 
 const HeaderBottom = ({ className }) => {
@@ -35,22 +37,10 @@ const HeaderBottom = ({ className }) => {
               <UserRound size={20} />
             </Link>
           </div>
-          <button className='header-bottom__cart' type='button'>
-            <ShoppingBag className='icon' />
-            <span>0 $</span>
-          </button>
+          <Cart />
         </div>
       )}
-      {windowWidth > 1200 && (
-        <Link
-          to='/cart'
-          className='header-bottom__cart'
-          style={{ textDecoration: 'none' }}
-        >
-          <ShoppingBag className='icon' />
-          <span>0 $</span>
-        </Link>
-      )}
+      {windowWidth > 1200 && <Cart />}
     </div>
   )
 }
