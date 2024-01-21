@@ -106,6 +106,9 @@
   bottom: 10px;
   right: 10px;
 }
+.constructor .constructor__item {
+  position: relative;
+}
 @media all and (width < 1000px) {
   .constructor .constructor__item {
     width: 100%;

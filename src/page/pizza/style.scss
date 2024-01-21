@@ -25,6 +25,8 @@
   }
 
   .constructor__item {
+    position: relative;
+
     @media all and (width < s.screen(tablet)) {
       width: 100%;
     }

@@ -9,7 +9,6 @@ import {
 } from '../../data/data'
 import {
   Card,
-  CardActionArea,
   CardContent,
   CardMedia,
   Typography,
@@ -60,68 +59,66 @@ const Constructor = ({ type }) => {
     <div className='constructor'>
       <div className='constructor__item'>
         <Card className='meal-card'>
-          <CardActionArea>
-            <CardMedia
-              component='img'
-              height='140'
-              image='../assets/SushiSet.jpg'
-              alt=''
-              className='img'
-            />
-            <CardContent>
-              <Typography gutterBottom variant='h5' component='div'>
-                Your set
+          <CardMedia
+            component='img'
+            height='140'
+            image='../assets/SushiSet.jpg'
+            alt=''
+            className='img'
+          />
+          <CardContent>
+            <Typography gutterBottom variant='h5' component='div'>
+              Your set
+            </Typography>
+
+            <CardContent
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
+
+                padding: '0',
+              }}
+            >
+              <Typography gutterBottom variant='text' component='div'>
+                Rolls:
+                <ul>
+                  {sushiset
+                    .filter((item) =>
+                      sushiRolls.find((roll) => roll.name === item),
+                    )
+                    .map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                </ul>
               </Typography>
-
-              <CardContent
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1rem',
-
-                  padding: '0',
-                }}
-              >
-                <Typography gutterBottom variant='text' component='div'>
-                  Rolls:
-                  <ul>
-                    {sushiset
-                      .filter((item) =>
-                        sushiRolls.find((roll) => roll.name === item),
-                      )
-                      .map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                  </ul>
-                </Typography>
-                <Typography gutterBottom variant='text' component='div'>
-                  Additional ingredients:
-                  <ul>
-                    {sushiSetIngredients
-                      .filter((ingredient) =>
-                        sushiset.includes(ingredient.ingredientName),
-                      )
-                      .map((ingredient) => (
-                        <li key={ingredient.ingredientName}>
-                          {ingredient.ingredientName}
-                        </li>
-                      ))}
-                  </ul>
-                </Typography>
-              </CardContent>
-
-              <Typography variant='h6' color='text.primary'>
-                Total Price: {calculateSetTotalPrice()}$
+              <Typography gutterBottom variant='text' component='div'>
+                Additional ingredients:
+                <ul>
+                  {sushiSetIngredients
+                    .filter((ingredient) =>
+                      sushiset.includes(ingredient.ingredientName),
+                    )
+                    .map((ingredient) => (
+                      <li key={ingredient.ingredientName}>
+                        {ingredient.ingredientName}
+                      </li>
+                    ))}
+                </ul>
               </Typography>
-
-              <AddButton
-                id={customSushiSet.id}
-                name={customSushiSet.name}
-                image={customSushiSet.image}
-                price={customSushiSet.price}
-              />
             </CardContent>
-          </CardActionArea>
+
+            <Typography variant='h6' color='text.primary'>
+              Total Price: {calculateSetTotalPrice()}$
+            </Typography>
+
+            <AddButton
+              id={customSushiSet.id}
+              name={customSushiSet.name}
+              image={customSushiSet.image}
+              price={customSushiSet.price}
+            />
+          </CardContent>
         </Card>
       </div>
       <div className='constructor__item'>
@@ -200,51 +197,53 @@ const Constructor = ({ type }) => {
     <div className='constructor'>
       <div className='constructor__item'>
         <Card className='meal-card'>
-          <CardActionArea>
-            <CardMedia
-              component='img'
-              height='140'
-              image=''
-              alt=''
-              className='img pizza__image'
-            />
-            <CardContent>
-              <Typography gutterBottom variant='h5' component='div'>
-                Your Pizza
+          <CardMedia
+            component='img'
+            height='140'
+            image=''
+            alt=''
+            className='img pizza__image'
+          />
+          <CardContent>
+            <Typography gutterBottom variant='h5' component='div'>
+              Your Pizza
+            </Typography>
+            <CardContent className='pizza__ingredients' sx={{ padding: 0 }}>
+              <Typography gutterBottom variant='text' component='div'>
+                Ingredients:
+                <ul>
+                  {pizzaIngredients
+                    .filter((ingredient) =>
+                      pizza.includes(ingredient.ingredientName),
+                    )
+                    .map((ingredient) => (
+                      <li key={ingredient.ingredientName}>
+                        {ingredient.ingredientName}
+                      </li>
+                    ))}
+                </ul>
               </Typography>
-              <CardContent className='pizza__ingredients' sx={{ padding: 0 }}>
-                <Typography gutterBottom variant='text' component='div'>
-                  Ingredients:
-                  <ul>
-                    {pizzaIngredients
-                      .filter((ingredient) =>
-                        pizza.includes(ingredient.ingredientName),
-                      )
-                      .map((ingredient) => (
-                        <li key={ingredient.ingredientName}>
-                          {ingredient.ingredientName}
-                        </li>
-                      ))}
-                  </ul>
-                </Typography>
-                <Typography gutterBottom variant='text' component='div'>
-                  Sauce: {pizzaSauce}
-                  <br />
-                  Size: {pizzaSize}
-                </Typography>
-              </CardContent>
+              <Typography gutterBottom variant='text' component='div'>
+                Sauce: {pizzaSauce}
+                <br />
+                Size: {pizzaSize}
+              </Typography>
+            </CardContent>
 
-              <Typography variant='h6' color='text.primary'>
-                Total Price: {calculatePizzaTotalPrice()}$
-              </Typography>
+            <Typography
+              variant='h6'
+              color='text.primary'
+              style={{ position: 'relative' }}
+            >
+              Total Price: {calculatePizzaTotalPrice()}$
               <AddButton
                 id={customPizza.id}
                 name={customPizza.name}
                 image={customPizza.image}
                 price={customPizza.price}
               />
-            </CardContent>
-          </CardActionArea>
+            </Typography>
+          </CardContent>
         </Card>
       </div>
       <div className='constructor__item'>

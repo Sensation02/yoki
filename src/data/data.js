@@ -95,6 +95,20 @@ export const pizzas = [
     ],
     image: '../assets/pizzas/Vegetarian.jpg',
   },
+  {
+    id: 5,
+    name: 'Seafood',
+    price: 200,
+    ingredients: ['tomato sauce', 'cheese', 'shrimp', 'calamari'],
+    image: '../assets/pizzas/Seafood.jpg',
+  },
+  {
+    id: 6,
+    name: 'BBQ Chicken',
+    price: 190,
+    ingredients: ['tomato sauce', 'cheese', 'chicken', 'onion', 'bbq sauce'],
+    image: '../assets/pizzas/BBQChicken.jpg',
+  },
 ]
 
 export const pizzaIngredients = [
