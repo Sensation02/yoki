@@ -1,0 +1,6 @@
+@use '../../style/service.scss' as s;
+
+.link {
+  @include s.link;
+  color: s.color(black);
+}

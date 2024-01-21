@@ -38,13 +38,13 @@ const HeaderTop = () => {
         <div className='header__contacts__self'>Self-delivery 22:45</div>
       </div>
       <div className='header__actions'>
-        <Link to='/notfound' className='icon'>
+        <Link to='/search' className='icon'>
           <Search size={20} />
         </Link>
-        <Link to='/notfound' className='icon'>
+        <Link to='/favorite' className='icon'>
           <Heart size={20} />
         </Link>
-        <Link to='/notfound' className='icon'>
+        <Link to='/profile' className='icon'>
           <UserRound size={20} />
         </Link>
       </div>
