@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
   const auth = useContext(AuthContext)
 
   if (!auth?.isLogged) {
-    return <Navigate to='/sign-in' />
+    return <Navigate to='/profile' />
   } else {
     return <>{children}</>
   }

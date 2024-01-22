@@ -1,49 +1,33 @@
-const emailErrors = {
-  required: 'Email is required',
-  invalid: 'Email is invalid',
-  latin: 'Email must contain only latin letters',
-}
+import * as yup from 'yup'
 
-const passwordErrors = {
-  required: 'Password is required',
-  isShort: 'Password must be at least 8 characters',
-  containUppercase: 'Password must contain at least one uppercase letter',
-  containSpecial: 'Password must contain at least one special character',
-  containDigit: 'Password must contain at least one digit',
-  latin: 'Password must contain only latin letters',
-}
-
-export const validateEmail = {
-  required: emailErrors.required,
-  validate: (value) => {
-    if (!value.match(/^[A-Za-z0-9@.]+$/)) {
-      return emailErrors.latin
-    }
-    if (!value.match(/^[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+$/)) {
-      return emailErrors.invalid
-    }
-    return true
-  },
-}
-export const validatePassword = {
-  required: passwordErrors.required,
-  minLength: {
-    value: 8,
-    message: passwordErrors.isShort,
-  },
-  validate: (value) => {
-    if (!value.match(/^[A-Za-z0-9!@#$%^&*()]+$/)) {
-      return passwordErrors.latin
-    }
-    if (!value.match(/^(?=.*[A-Z])/)) {
-      return passwordErrors.containUppercase
-    }
-    if (!value.match(/^(?=.*[!@#$%^&*()])/)) {
-      return passwordErrors.containSpecial
-    }
-    if (!value.match(/^(?=.*[0-9])/)) {
-      return passwordErrors.containDigit
-    }
-    return true
-  },
-}
+export const schema = yup.object().shape({
+  firstName: yup
+    .string()
+    .required('First name is required')
+    .matches(/^[A-Za-z]+$/, 'First name must contain only latin letters'),
+  lastName: yup
+    .string()
+    .required('Last name is required')
+    .matches(/^[A-Za-z]+$/, 'Last name must contain only latin letters'),
+  email: yup
+    .string()
+    .required('Email is required')
+    .matches(/^[A-Za-z0-9@.]+$/, 'Email must contain only latin letters'),
+  password: yup
+    .string()
+    .required('Password is required')
+    .min(8, 'Password must be at least 8 characters')
+    // .matches(
+    //   /^[A-Za-z0-9!@#$%^&*()]+$/,
+    //   'Password must contain only latin letters',
+    // )
+    .matches(
+      /^(?=.*[A-Z])/,
+      'Password must contain at least one uppercase letter',
+    )
+    // .matches(
+    //   /^(?=.*[!@#$%^&*()])/,
+    //   'Password must contain at least one special character',
+    // )
+    .matches(/^(?=.*[0-9])/, 'Password must contain at least one digit'),
+})
