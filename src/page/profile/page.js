@@ -16,15 +16,6 @@ import getUserByEmail from '../../utils/getUserByEmail'
 
 const Profile = () => {
   const [user, setUser] = useState(null)
-  // // const navigate = useNavigation()
-  // // const history = useHistory()
-  // // console.log(localStorage.getItem('token'))
-  // const accessToken = localStorage.getItem('token')
-  // console.log(accessToken)
-  // const tokenData = jwtDecode(accessToken)
-  // // console.log(tokenData)
-  // const email = tokenData.email
-  // console.log(email)
 
   useEffect(() => {
     const fetchUser = async () => {
