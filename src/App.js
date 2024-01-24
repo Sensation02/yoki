@@ -8,6 +8,8 @@ import Pizza from './page/pizza/page'
 import Error from './page/error/page'
 import SignIn from './page/sign-in/page'
 import SignUp from './page/sign-up/page'
+import Profile from './page/profile/page'
+
 import PrivateRoute, { AuthContext } from './providers/AuthContext'
 
 function App() {
@@ -25,14 +27,16 @@ function App() {
               <Route path='/sign-up' element={<SignUp />} />
               <Route path='/sets' element={<Sets />} />
               <Route path='/pizza' element={<Pizza />} />
+
               <Route
                 path='/profile'
                 element={
                   <PrivateRoute>
-                    <h1>Profile</h1>
+                    <Profile />
                   </PrivateRoute>
                 }
               />
+
               <Route path='*' element={<Error />} />
             </Routes>
             <Footer />

@@ -3,14 +3,17 @@ import { Navigate } from 'react-router-dom'
 
 export const AuthContext = createContext(null)
 
-const PrivateRoute = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const auth = useContext(AuthContext)
 
-  if (!auth?.isLogged) {
-    return <Navigate to='/profile' />
-  } else {
+  if (!auth) {
+    return <Navigate to='/sign-in' />
+  }
+  if (auth?.isLogged) {
     return <>{children}</>
+  } else {
+    return <Navigate to='/sign-in' />
   }
 }
 
-export default PrivateRoute
+export default AuthProvider

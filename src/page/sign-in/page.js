@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 // #region imports
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
@@ -58,7 +58,7 @@ export default function SignIn() {
   const onSubmit = async (data, event) => {
     event.preventDefault()
     const { email, password } = data
-    console.log({ email, password })
+    // console.log({ email, password })
     try {
       const response = await axios.post(
         'http://localhost:4000/auth',
@@ -68,10 +68,6 @@ export default function SignIn() {
           withCredentials: true,
         },
       )
-
-      // for debug
-      const accessToken = response?.data?.accessToken
-      console.log('token:', accessToken)
 
       // checking response and set error if it is
       if (!response) {
@@ -84,11 +80,10 @@ export default function SignIn() {
         setError('Login Failed')
       }
 
-      navigation('/profile')
-
       // set auth data to context
-      if (accessToken) {
-        auth.setAuthData(accessToken)
+      if (!!response?.data?.accessToken) {
+        auth?.login(true)
+        localStorage.setItem('token', response.data.accessToken)
         navigation('/profile')
       }
     } catch (error) {
@@ -161,6 +156,7 @@ export default function SignIn() {
                     helperText={errors.email?.message}
                     placeholder='Enter your email'
                     autoFocus
+                    color='error'
                   />
                 )
               }}
@@ -213,6 +209,7 @@ export default function SignIn() {
                     error={!!errors.password?.message}
                     helperText={errors.password?.message}
                     placeholder='Enter your password'
+                    color='error'
                     InputProps={{
                       endAdornment: (
                         <InputAdornment position='end'>

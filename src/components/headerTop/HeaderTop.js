@@ -44,7 +44,7 @@ const HeaderTop = () => {
         <Link to='/favorite' className='icon'>
           <Heart size={20} />
         </Link>
-        <Link to='/profile' className='icon'>
+        <Link to='/profile/:profileId' className='icon'>
           <UserRound size={20} />
         </Link>
       </div>
