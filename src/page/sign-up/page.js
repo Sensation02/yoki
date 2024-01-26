@@ -71,26 +71,13 @@ export default function SignUp() {
       // console.log for debug
       console.log(response.data)
 
-      if (!response) {
-        setError('No server response')
-      } else if (response?.status === 400) {
-        setError('Wrong email or password')
-      } else if (response?.status === 500) {
-        setError('Internal server error')
-      }
-
-      // if response status is 200
       if (response?.status === 201) {
         navigation('/sign-in')
         setError('Success!')
       }
     } catch (error) {
       if (!error?.response) {
-        setError('Something went wrong on server side')
-      } else if (error.response?.status === 409) {
-        setError('User is already exist')
-      } else {
-        setError('Registration Failed')
+        setError(error?.response?.message)
       }
     }
   }
@@ -187,9 +174,9 @@ export default function SignUp() {
           </Button>
           <Grid container justifyContent='flex-end'>
             <Grid item xs>
-              <Link to='/forgot' className='link'>
+              {/* <Link to='/forgot' className='link'>
                 Forgot password?
-              </Link>
+              </Link> */}
             </Grid>
             <Grid item xs>
               <Link to='/sign-in' className='link'>

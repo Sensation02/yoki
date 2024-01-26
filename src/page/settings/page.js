@@ -12,16 +12,18 @@ import IconButton from '@mui/material/IconButton'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import TextField from '@mui/material/TextField'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './style.scss'
 import useUser from '../../utils/useUser'
 import useShowPassword from '../../utils/useShowPassword'
+import { AuthContext } from '../../providers/AuthContext'
 
 const Settings = () => {
+  const navigation = useNavigate()
+  const auth = React.useContext(AuthContext)
+
   // підтягуємо нашого користувача щоб потім змінювати його дані
   const user = useUser()
-  console.log(user)
-  console.log(localStorage.getItem('token'))
 
   // показуємо пароль
   const { showPassword, handleClickShowPassword, handleMouseDownPassword } =
@@ -50,24 +52,7 @@ const Settings = () => {
     Email: email && password,
     FirstName: firstName && password,
     LastName: lastName && password,
-  }
-
-  // вихід
-  const handleLogout = async (event) => {
-    event?.preventDefault()
-
-    try {
-      const res = await axios.get(`${apiURL}/logout`)
-
-      if (res.status === 204) {
-        localStorage.removeItem('token')
-        window.location.href = '/'
-      }
-    } catch (error) {
-      if (error.response) {
-        console.log(error.response.message)
-      }
-    }
+    all: password && email && firstName && lastName,
   }
 
   // функція для відправки даних на сервер
@@ -86,7 +71,7 @@ const Settings = () => {
           },
           {
             headers: {
-              authorization: localStorage.getItem('token'),
+              authorization: `Bearer ${localStorage.getItem('token')}`,
               'Content-Type': 'application/json',
             },
           },
@@ -104,11 +89,20 @@ const Settings = () => {
 
     if (condition.Email) {
       try {
-        const res = await axios.put(`${apiURL}/users`, {
-          id: user.id,
-          email,
-          password,
-        })
+        const res = await axios.put(
+          `${apiURL}/users`,
+          {
+            id: user.id,
+            email,
+            password,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('token')}`,
+              'Content-Type': 'application/json',
+            },
+          },
+        )
 
         if (res.status === 200) {
           setMessage('Email changed successfully')
@@ -122,11 +116,20 @@ const Settings = () => {
 
     if (condition.FirstName) {
       try {
-        const res = await axios.put(`${apiURL}/users`, {
-          id: user.id,
-          firstName,
-          password,
-        })
+        const res = await axios.put(
+          `${apiURL}/users`,
+          {
+            id: user.id,
+            firstName,
+            password,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('token')}`,
+              'Content-Type': 'application/json',
+            },
+          },
+        )
 
         if (res.status === 200) {
           setMessage('First name changed successfully')
@@ -140,11 +143,20 @@ const Settings = () => {
 
     if (condition.LastName) {
       try {
-        const res = await axios.put(`${apiURL}/users`, {
-          id: user.id,
-          lastName,
-          password,
-        })
+        const res = await axios.put(
+          `${apiURL}/users`,
+          {
+            id: user.id,
+            lastName,
+            password,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('token')}`,
+              'Content-Type': 'application/json',
+            },
+          },
+        )
 
         if (res.status === 200) {
           setMessage('Last name changed successfully')
@@ -153,6 +165,63 @@ const Settings = () => {
         if (error.response) {
           setMessage(error.response.data.message)
         }
+      }
+    }
+    if (condition.all) {
+      try {
+        const res = await axios.put(
+          `${apiURL}/users`,
+          {
+            id: user.id,
+            firstName,
+            lastName,
+            email,
+            password,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('token')}`,
+              'Content-Type': 'application/json',
+            },
+          },
+        )
+
+        if (res.status === 200) {
+          setMessage('All data changed successfully')
+        }
+      } catch (error) {
+        if (error.response) {
+          setMessage(error.response.data.message)
+        }
+      }
+    }
+  }
+
+  const handleDelete = async (event) => {
+    event.preventDefault()
+
+    console.log('Trying to delete user with id: ', user.id)
+
+    try {
+      console.log('Sending request to server...')
+      const res = await axios.delete(`${apiURL}/users/${user.id}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (res.status === 200) {
+        localStorage.removeItem('token')
+        setMessage('User deleted successfully')
+        setTimeout(() => {
+          auth.login(false)
+          // navigation('/')
+        }, 3000)
+      }
+    } catch (error) {
+      if (error.response) {
+        setMessage(error.response.data.message)
       }
     }
   }
@@ -165,6 +234,7 @@ const Settings = () => {
           <TextField
             id='outlined-basic'
             label='First Name'
+            type='text'
             variant='standard'
             color='error'
             value={firstName}
@@ -173,6 +243,7 @@ const Settings = () => {
           <TextField
             id='outlined-basic'
             label='Last Name'
+            type='text'
             variant='standard'
             color='error'
             value={lastName}
@@ -181,6 +252,7 @@ const Settings = () => {
           <TextField
             id='outlined-basic'
             label='Email'
+            type='email'
             variant='standard'
             color='error'
             value={email}
@@ -242,13 +314,13 @@ const Settings = () => {
             </Link>
           </Button>
           <Button
-            variant='outlined'
+            variant='contained'
             color='error'
             sx={{ width: '200px' }}
-            onClick={handleLogout}
+            onClick={handleDelete}
           >
-            <Link to='/' style={{ textDecoration: 'none', color: 'red' }}>
-              logout
+            <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
+              Delete account
             </Link>
           </Button>
           <Button

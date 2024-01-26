@@ -11,6 +11,7 @@ import SignIn from './page/sign-in/page'
 import SignUp from './page/sign-up/page'
 import Profile from './page/profile/page'
 import Settings from './page/settings/page'
+import Forgot from './page/forgot/page'
 
 import PrivateRoute, { AuthContext } from './providers/AuthContext'
 
@@ -27,6 +28,7 @@ function App() {
               <Route index element={<Home />} />
               <Route path='/sign-in' element={<SignIn />} />
               <Route path='/sign-up' element={<SignUp />} />
+              <Route path='/forgot' element={<Forgot />} />
               <Route path='/sets' element={<Sets />} />
               <Route path='/pizza' element={<Pizza />} />
 

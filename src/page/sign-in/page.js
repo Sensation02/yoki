@@ -70,35 +70,19 @@ export default function SignIn() {
         },
       )
 
-      console.log(response)
-
-      // checking response and set error if it is
-      if (!!response) {
-        setError('No server response')
-      } else if (response?.status === 400) {
-        setError(response.data.message)
-      } else if (response?.status === 401) {
-        setError(response.data.message)
-      } else if (response?.status === 403) {
-        setError(response.data.message)
-      } else if (response?.status === 404) {
-        setError(response.data.message)
-      } else if (!response?.data?.accessToken) {
-        setError('Login Failed')
-      }
+      console.log('response object: ', { response })
 
       // set auth data to context
-      if (!!response?.data?.accessToken) {
+      if (response?.data?.accessToken) {
         auth?.login(true)
         localStorage.setItem('token', response.data.accessToken)
+        console.log('Token stored: ', localStorage.getItem('token'))
         navigation('/profile')
       }
     } catch (error) {
       console.log(error)
       if (!error?.response) {
-        setError('Something went wrong on server side')
-      } else if (error.response?.status === 409) {
-        setError('User is already exist')
+        setError(error?.response?.message)
       }
     }
   }
@@ -109,7 +93,7 @@ export default function SignIn() {
   }, [])
 
   return (
-    <Container component='main' maxWidth='xs'>
+    <Container component='section' maxWidth='md'>
       <CssBaseline />
       <Box
         sx={{
@@ -135,8 +119,7 @@ export default function SignIn() {
             display: 'flex',
             flexDirection: 'column',
             gap: '1rem',
-            width: '290px',
-            maxWidth: 'fit-content',
+            width: '300px',
           }}
         >
           <Grid item xs={12}>
@@ -253,9 +236,9 @@ export default function SignIn() {
           </Button>
           <Grid container sx={{ display: 'flex', gap: '1rem' }}>
             <Grid item xs>
-              <Link to='/recover' className='link'>
+              {/* <Link to='/forgot' className='link'>
                 Forgot password?
-              </Link>
+              </Link> */}
             </Grid>
             <Grid item>
               <Link to='/sign-up' className='link'>
