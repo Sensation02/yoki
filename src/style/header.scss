@@ -2,6 +2,6 @@
 
 @mixin header {
   @include flex.flex;
-  @include flex.flex-between;
+  @include flex.justify-between;
   flex-direction: row;
 }

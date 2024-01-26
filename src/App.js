@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Home from './page/home/page'
@@ -9,6 +10,7 @@ import Error from './page/error/page'
 import SignIn from './page/sign-in/page'
 import SignUp from './page/sign-up/page'
 import Profile from './page/profile/page'
+import Settings from './page/settings/page'
 
 import PrivateRoute, { AuthContext } from './providers/AuthContext'
 
@@ -33,6 +35,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <Profile />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path='/settings'
+                element={
+                  <PrivateRoute>
+                    <Settings />
                   </PrivateRoute>
                 }
               />

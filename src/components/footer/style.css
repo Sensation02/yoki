@@ -51,7 +51,7 @@
 }
 .footer__item .info-item {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   gap: 1.5rem;
 }
@@ -168,6 +168,6 @@
     flex-direction: row;
     gap: 2rem;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
   }
 }

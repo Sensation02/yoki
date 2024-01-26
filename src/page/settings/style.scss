@@ -1,0 +1,21 @@
+@use '../../style/service.scss' as s;
+
+.form {
+  @include s.flex-column;
+  padding: 1rem;
+  margin: 1rem;
+  @include s.card;
+  gap: 1rem;
+
+  &__group {
+    @include s.flex-column;
+    margin-bottom: 1rem;
+    gap: 1rem;
+  }
+
+  .button__group {
+    @include s.flex-row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}

@@ -19,6 +19,7 @@ import { schema } from '../../utils/validate'
 import axios from 'axios'
 import Stack from '@mui/material/Stack'
 import Alert from '@mui/material/Alert'
+import useShowPassword from '../../utils/useShowPassword'
 // #endregion
 
 export default function SignUp() {
@@ -33,9 +34,8 @@ export default function SignUp() {
   })
 
   // показуємо пароль
-  const [showPassword, setShowPassword] = React.useState(false)
-  const handleClickShowPassword = () => setShowPassword(!showPassword)
-  const handleMouseDownPassword = (event) => event.preventDefault()
+  const { showPassword, handleClickShowPassword, handleMouseDownPassword } =
+    useShowPassword()
 
   // помилка
   const [error, setError] = React.useState('')
@@ -71,19 +71,18 @@ export default function SignUp() {
       // console.log for debug
       console.log(response.data)
 
-      // if response status is 200
-      if (response?.status === 200) {
-        navigation('/sign-in')
-      }
-
       if (!response) {
         setError('No server response')
       } else if (response?.status === 400) {
         setError('Wrong email or password')
-      } else if (response?.status === 401) {
-        setError('Unauthorized')
-      } else {
-        setError('Login Failed')
+      } else if (response?.status === 500) {
+        setError('Internal server error')
+      }
+
+      // if response status is 200
+      if (response?.status === 201) {
+        navigation('/sign-in')
+        setError('Success!')
       }
     } catch (error) {
       if (!error?.response) {

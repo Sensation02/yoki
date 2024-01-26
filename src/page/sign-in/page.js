@@ -21,6 +21,7 @@ import { Controller, useFormState } from 'react-hook-form'
 import axios from 'axios'
 import Stack from '@mui/material/Stack'
 import Alert from '@mui/material/Alert'
+import useShowPassword from '../../utils/useShowPassword'
 // #endregion
 import './style.scss'
 
@@ -38,15 +39,15 @@ function remember() {
 
 export default function SignIn() {
   // показуємо пароль
-  const [showPassword, setShowPassword] = React.useState(false)
-  const handleClickShowPassword = () => setShowPassword(!showPassword)
-  const handleMouseDownPassword = (event) => event.preventDefault()
+  const { showPassword, handleClickShowPassword, handleMouseDownPassword } =
+    useShowPassword()
 
   // навігація
   const navigation = useNavigate()
 
   // помилка
   const [error, setError] = React.useState('')
+  console.log(error)
 
   // auth context
   const auth = React.useContext(AuthContext)
@@ -69,13 +70,19 @@ export default function SignIn() {
         },
       )
 
+      console.log(response)
+
       // checking response and set error if it is
-      if (!response) {
+      if (!!response) {
         setError('No server response')
       } else if (response?.status === 400) {
-        setError('Wrong email or password')
+        setError(response.data.message)
       } else if (response?.status === 401) {
-        setError('Unauthorized')
+        setError(response.data.message)
+      } else if (response?.status === 403) {
+        setError(response.data.message)
+      } else if (response?.status === 404) {
+        setError(response.data.message)
       } else if (!response?.data?.accessToken) {
         setError('Login Failed')
       }
@@ -87,6 +94,7 @@ export default function SignIn() {
         navigation('/profile')
       }
     } catch (error) {
+      console.log(error)
       if (!error?.response) {
         setError('Something went wrong on server side')
       } else if (error.response?.status === 409) {
@@ -205,11 +213,11 @@ export default function SignIn() {
                     fullWidth
                     onChange={(e) => field.onChange(e)}
                     value={field.value}
-                    autoComplete='off'
                     error={!!errors.password?.message}
                     helperText={errors.password?.message}
                     placeholder='Enter your password'
                     color='error'
+                    autoComplete='on'
                     InputProps={{
                       endAdornment: (
                         <InputAdornment position='end'>

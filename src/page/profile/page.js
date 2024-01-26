@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { apiURL } from '../../utils/navigation'
@@ -12,18 +13,32 @@ import Divider from '@mui/material/Divider'
 import MenuList from '@mui/material/MenuList'
 import MenuItem from '@mui/material/MenuItem'
 import { Link } from 'react-router-dom'
-import getUserByEmail from '../../utils/getUserByEmail'
+import capitalize from '../../utils/capitalize'
+import './style.scss'
 
 const Profile = () => {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const user = await getUserByEmail()
-      setUser(user)
-    }
+    const getUser = async () => {
+      try {
+        const token = localStorage.getItem('token')
+        const res = await axios.get(`${apiURL}/auth/me`, {
+          headers: {
+            token: token,
+          },
+        })
 
-    fetchUser()
+        if (res.status === 200) {
+          setUser(res.data.user)
+        }
+      } catch (error) {
+        if (error.response) {
+          console.log(error.response.message)
+        }
+      }
+    }
+    getUser()
   }, [])
 
   const handleLogout = async (event) => {
@@ -33,8 +48,9 @@ const Profile = () => {
       const res = await axios.get(`${apiURL}/logout`)
 
       if (res.status === 204) {
-        setUser(null)
+        localStorage.removeItem('token')
         window.location.href = '/'
+        setUser(null)
       }
     } catch (error) {
       if (error.response) {
@@ -47,30 +63,14 @@ const Profile = () => {
     <Container component='section' maxWidth='md'>
       <CssBaseLine />
       <SectionHeading title='Profile' />
-      <Box
-        sx={{
-          marginTop: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          border: '1px solid gray',
-          borderRadius: '10px',
-          boxShadow: '0 0 10px 0 rgba(0,0,0,0.2)',
-        }}
-      >
-        <Avatar
-          sx={{
-            width: 100,
-            height: 100,
-            backgroundColor: 'red',
-            alignSelf: 'center',
-            mt: 3,
-            mb: 3,
-          }}
-          alt=''
-          src=''
-        >
-          B
-        </Avatar>
+
+      <Box className='profile'>
+        <div className='profile__heading'>
+          <img className='profile__background-image' />
+          <Avatar alt='' src='' className='profile__avatar'>
+            {user && capitalize(user.firstName)}
+          </Avatar>
+        </div>
         <Divider />
         <Box sx={{ m: 3 }}>
           <Grid container spacing={2}>
@@ -96,7 +96,7 @@ const Profile = () => {
                   </Typography>
                   <Divider />
                   <Typography variant='body1' component='p'>
-                    {user && user.firstName}
+                    {user && capitalize(user.firstName)}
                   </Typography>
                 </Box>
                 <Box>
@@ -105,7 +105,7 @@ const Profile = () => {
                   </Typography>
                   <Divider />
                   <Typography variant='body1' component='p'>
-                    {user && user.firstName}
+                    {user && capitalize(user.lastName)}
                   </Typography>
                 </Box>
                 <Box>

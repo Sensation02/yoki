@@ -30,3 +30,6 @@
 
 @use './constructor.scss';
 @forward './constructor.scss';
+
+@use './card.scss';
+@forward './card.scss';
