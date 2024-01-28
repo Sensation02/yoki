@@ -12,14 +12,13 @@ import IconButton from '@mui/material/IconButton'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import TextField from '@mui/material/TextField'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './style.scss'
 import useUser from '../../utils/useUser'
 import useShowPassword from '../../utils/useShowPassword'
 import { AuthContext } from '../../providers/AuthContext'
 
 const Settings = () => {
-  const navigation = useNavigate()
   const auth = React.useContext(AuthContext)
 
   // підтягуємо нашого користувача щоб потім змінювати його дані

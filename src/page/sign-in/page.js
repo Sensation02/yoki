@@ -22,6 +22,7 @@ import axios from 'axios'
 import Stack from '@mui/material/Stack'
 import Alert from '@mui/material/Alert'
 import useShowPassword from '../../utils/useShowPassword'
+import { apiURL } from '../../utils/navigation'
 // #endregion
 import './style.scss'
 
@@ -62,7 +63,7 @@ export default function SignIn() {
     // console.log({ email, password })
     try {
       const response = await axios.post(
-        'http://localhost:4000/auth',
+        `${apiURL}/auth`,
         { email, password },
         {
           headers: { 'Content-Type': 'application/json' },

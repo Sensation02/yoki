@@ -20,6 +20,7 @@ import axios from 'axios'
 import Stack from '@mui/material/Stack'
 import Alert from '@mui/material/Alert'
 import useShowPassword from '../../utils/useShowPassword'
+import { apiURL } from '../../utils/navigation'
 // #endregion
 
 export default function SignUp() {
@@ -53,7 +54,7 @@ export default function SignUp() {
 
     try {
       const response = await axios.post(
-        'http://localhost:4000/register',
+        `${apiURL}/register`,
         {
           firstName,
           lastName,
